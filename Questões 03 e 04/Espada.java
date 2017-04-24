@@ -16,6 +16,7 @@ public class Espada extends Item{
 	public void setAtk(int atk){
 		this.atk = atk;
 	}
+	
 	//override
 	@Override
 	public void usar(Personagem p){
@@ -26,7 +27,7 @@ public class Espada extends Item{
 				p.setAtaque(p.getAtaque() - esp.getAtk());
 				p.getItens().remove(i);
 			}
-			
+
 		//isso aqui é fora do for tá
 		p.getItens().add(this);
 		p.setPesoAdicional(p.getPesoAdicional() + this.getPeso());
