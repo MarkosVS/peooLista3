@@ -9,8 +9,17 @@ public class Personagem{
 	private int hp;
 	private ArrayList<Item> itens;
 
-	//construtor
+	//construtores
 	public Personagem(){
+		this.pesoAdicional = 0;
+		this.itens = new ArrayList<>();
+	}
+
+	public Personagem(int peso, int atk, int def, int hp){
+		this.peso = peso;
+		this.ataque = atk;
+		this.defesa = def;
+		this.hp = hp;
 		this.itens = new ArrayList<>();
 	}
 	//getters
@@ -61,5 +70,10 @@ public class Personagem{
 
 	public void setItens(ArrayList<Item> itens){
 		this.itens = itens;
+	}
+
+	//métodos
+	public int peso(){
+		return this.peso + this.pesoAdicional;
 	}
 }
