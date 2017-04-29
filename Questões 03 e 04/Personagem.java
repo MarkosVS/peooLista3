@@ -8,20 +8,25 @@ public class Personagem{
 	private int defesa;
 	private int hp;
 	private ArrayList<Item> itens;
+	private ArrayList<Item> bolsa;
 
 	//construtores
 	public Personagem(){
 		this.pesoAdicional = 0;
 		this.itens = new ArrayList<>();
+		this.bolsa = new ArrayList<>();
 	}
 
 	public Personagem(int peso, int atk, int def, int hp){
+		this.pesoAdicional = 0;
 		this.peso = peso;
 		this.ataque = atk;
 		this.defesa = def;
 		this.hp = hp;
 		this.itens = new ArrayList<>();
+		this.bolsa = new ArrayList<>();
 	}
+
 	//getters
 	public int getPeso(){
 		return this.peso;
@@ -47,13 +52,13 @@ public class Personagem{
 		return this.itens;
 	}
 
+	public ArrayList<Item> getBolsa(){
+		return this.bolsa;
+	}
+
 	//setters
 	public void setPeso(int peso){
 		this.peso = peso;
-	}
-
-	public void setPesoAdicional(int peso){
-		this.pesoAdicional = peso;
 	}
 
 	public void setAtaque(int atk){
@@ -68,12 +73,15 @@ public class Personagem{
 		this.hp = hp;
 	}
 
-	public void setItens(ArrayList<Item> itens){
-		this.itens = itens;
-	}
-
 	//métodos
 	public int peso(){
 		return this.peso + this.pesoAdicional;
+	}
+
+	public void colocarItemNaBolsa(Item i){
+		if(this.pesoAdicional + i.getPeso() <= this.peso){
+			this.pesoAdicional += i.getPeso();
+			this.bolsa.add(i);
+		}
 	}
 }

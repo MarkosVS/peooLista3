@@ -20,17 +20,19 @@ public class Espada extends Item{
 	//override
 	@Override
 	public void usar(Personagem p){
-		for(Item i : p.getItens())
-			if(i instanceof Espada){
-				Espada esp = (Espada) i;
-				p.setPesoAdicional(p.getPesoAdicional() - i.getPeso());
-				p.setAtaque(p.getAtaque() - esp.getAtk());
-				p.getItens().remove(i);
-			}
+		if(this.peso + p.getPesoAdicional() >= p.getPeso()){
+			for(Item i : p.getItens())
+				if(i instanceof Espada){
+					Espada esp = (Espada) i;
+					p.setPesoAdicional(p.getPesoAdicional() - i.getPeso());
+					p.setAtaque(p.getAtaque() - esp.getAtk());
+					p.getItens().remove(i);
+				}
 
-		//isso aqui é fora do for tá
-		p.getItens().add(this);
-		p.setPesoAdicional(p.getPesoAdicional() + this.getPeso());
-		p.setAtaque(this.atk + p.getAtaque());
+			//isso aqui é fora do for tá
+			p.getItens().add(this);
+			p.setPesoAdicional(p.getPesoAdicional() + this.getPeso());
+			p.setAtaque(this.atk + p.getAtaque());
+		}
 	}
 }
