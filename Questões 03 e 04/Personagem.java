@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Personagem{
+public class Personagem implements InterfacePersonagem {
 	//atributos
 	private int peso;
 	private int pesoAdicional;
@@ -84,4 +84,9 @@ public class Personagem{
 			this.bolsa.add(i);
 		}
 	}
+
+	//metodos interface
+	public void atacar(Personagem other){}
+
+	public void defender(Personagem other){}
 }
