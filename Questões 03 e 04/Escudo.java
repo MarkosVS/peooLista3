@@ -20,7 +20,7 @@ public class Escudo extends Item{
 	//override
 	@Override
 	public void usar(Personagem p){
-		if(this.peso + p.getPesoAdicional() >= p.getPeso()){
+		if(this.getPeso() + p.getPesoAdicional() >= p.getPeso()){
 			for(Item i : p.getItens())
 				if(i instanceof Escudo){
 					Escudo esc = (Escudo) i;

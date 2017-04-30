@@ -61,6 +61,10 @@ public class Personagem implements InterfacePersonagem {
 		this.peso = peso;
 	}
 
+	public void setPesoAdicional(int peso){
+		this.pesoAdicional = peso;
+	}
+
 	public void setAtaque(int atk){
 		this.ataque = atk;
 	}
@@ -86,7 +90,12 @@ public class Personagem implements InterfacePersonagem {
 	}
 
 	//metodos interface
-	public void atacar(Personagem other){}
+	public void atacar(Personagem other){
+		other.defender(this);
+	}
 
-	public void defender(Personagem other){}
+	public void defender(Personagem other){
+		if(other.ataque > this.defesa)
+			this.hp -= (other.ataque - this.defesa);
+	}
 }
