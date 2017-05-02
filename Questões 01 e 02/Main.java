@@ -9,6 +9,8 @@ public class Main {
 		v.add(f1);
 		v.add(f2);
 		for(Funcionario f : v)
-			f.descontar();
+			if(f instanceof AnalistaDeSistemas)
+				f.descontar();
+		
 	}
 }
